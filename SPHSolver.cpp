@@ -180,7 +180,7 @@ void SPHSolver::Advance(float dt)
 
 	//Advance by euler
 	AdvanceSPH(dt);
-//	CheckSortedParticles();
+	//CheckSortedParticles();
 
 	//CheckMemory();
 	//SwapParticleBuffers();

@@ -157,7 +157,7 @@ __device__ float ContributeDensity(int Idx,float3* iPos,uint hashKey,char** pSor
 	float mass,density;
 	float dSq;
 	float h2;
-	float c;
+	float c,difx,dify,difz;
 	density = 0.0f;
 	//int particlesFound=0;
 	for(int i = min; i< max; i++)
@@ -167,8 +167,11 @@ __device__ float ContributeDensity(int Idx,float3* iPos,uint hashKey,char** pSor
 		//Get the position
 		jPos = 	(float3*)(pSortFluidBuf[i]);
 		mass = *(float*)(pSortFluidBuf[i] + MASS_STRIDE);
-		//Calculate the distance
-		dSq = (iPos->x)*(jPos->x) + (iPos->y)*(jPos->y) + (iPos->z)*(jPos->z);
+		//Calculate the distance squared
+		difx = iPos->x - jPos->x;
+		dify = iPos->y - jPos->y;
+		difz = iPos->z - jPos->z;
+		dSq = difx*difx + dify*dify + difz*difz;
 		h2 = (solver.smoothradius)*(solver.smoothradius);
 		if(h2 > dSq)
 		{
@@ -269,6 +272,11 @@ __global__ void ComputeDensityAndPressure(char** pSortFluidBuf,int numParts,int2
 __device__ void ContributeForces(float3* forces,int Idx,char* iPart,uint hashKey,char** pSortFluidBuf,int2* gridBuffer)
 {
 	int min = gridBuffer[hashKey].x;
+
+	if(min == -1) //If it's -1 then there are no particles and we leave
+		return;
+
+
 	int max = gridBuffer[hashKey].y;
 	char* jPart;
 	float rNorm;
@@ -307,7 +315,8 @@ __device__ void ContributeForces(float3* forces,int Idx,char* iPart,uint hashKey
 		//calculate |r|
 		rNorm = length(r);
 
-
+		if(rNorm > solver.smoothradius)
+			continue;
 
 		c = (solver.smoothradius - rNorm);
 
@@ -326,11 +335,14 @@ __device__ void ContributeForces(float3* forces,int Idx,char* iPart,uint hashKey
         fFactor = -iDens*jMass*solver.pressKernal*c*c/rNorm;
         fFactor *= ((iPress)/(iDens*iDens)) + ((jPress)/(jDens*jDens));
 
-		forces->x += r.x*fFactor;
-		forces->y += r.y*fFactor;
-		forces->z += r.z*fFactor;
+		*forces += r*fFactor;
+
+		//forces->x += r.x*fFactor;
+		//forces->y += r.y*fFactor;
+		//forces->z += r.z*fFactor;
 		//Apply viscosity
 		fFactor = (*(float*)(iPart + VIS_STRIDE))*jMass*solver.viscKernal*c/(jDens);
+		//*forces += u*fFactor;
 		forces->x += u.x*fFactor;
 		forces->y += u.y*fFactor;
 		forces->z += u.z*fFactor;
@@ -368,7 +380,6 @@ __global__ void ComputeForces(char** pSortFluidBuf,int numParts,int2* gridBuffer
 				for(int x = gridMin.x; x<=gridMax.x; x++)
 				{
 					uint hashKey = hashFunc(x,y,z);
-					if( gridBuffer[hashKey].x != -1)
 						ContributeForces(force,Idx,particle,hashKey,pSortFluidBuf,gridBuffer);
 				}
 			}
@@ -397,7 +408,7 @@ __global__ void AdvanceEuler(float dt, char** pSortFluidBuf,int numParts)
 	   	if(*(float*)(particle + DENS_STRIDE) == 0.0f)
 			accel = make_float3(0,0,0);
 
-		accel.z += -9.81f;
+	//	accel.z += -9.81f;
 
 		float speed = accel.x*accel.x + accel.y*accel.y + accel.z*accel.z;
 		if(speed > solver.maxSpeed*solver.maxSpeed)
@@ -532,30 +543,30 @@ __global__ void AdvanceLeap(float dt, char** pSortFluidBuf,int numParts)
 	   if(pos->z < -solver.simSize.z-EPSILON)
 	   {
 		   pos->z = -solver.simSize.z;
-		   accel *= solver.velDamp;
+		   accel.z *= solver.velDamp;
 	   }
 
 	   ////////////X BOUNDARIES/////////////////
 	   if(pos->x < -solver.simSize.x-EPSILON)
 	   {
 		   pos->x = -solver.simSize.x;
-		   accel *= solver.velDamp;
+		   accel.x *= solver.velDamp;
 	   }
 	   if(pos->x > solver.simSize.x+EPSILON)
 	   {
 		   pos->x = solver.simSize.x;
-		   accel *= solver.velDamp;
+		   accel.x *= solver.velDamp;
 	   }
 	   ///////////Y BOUNDARIES//////////////////
 	   	   if(pos->y < -solver.simSize.y-EPSILON)
 	   {
 		   pos->y = -solver.simSize.y;
-		   accel *= solver.velDamp;
+		   accel.y *= solver.velDamp;
 	   }
 	   if(pos->y > solver.simSize.y+EPSILON)
 	   {
 		   pos->y = solver.simSize.y;
-		   accel *= solver.velDamp;
+		   accel.y *= solver.velDamp;
 	   }
 
 

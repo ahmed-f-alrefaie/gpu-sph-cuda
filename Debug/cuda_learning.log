@@ -1,22 +1,303 @@
-﻿Build started 21/12/2012 17:45:55.
-     1>Project "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\cuda_learning.vcxproj" on node 2 (rebuild target(s)).
-     1>_PrepareForClean:
-         Deleting file "Debug\cuda_learning.lastbuildstate".
-       CudaClean:
-         cmd.exe /C "C:\Users\BreadMaker\AppData\Local\Temp\8128159f8c2740d1927b48c65cd0fb47.cmd"
-         "E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -ccbin "E:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin"  -I"C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc" -I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"  -G   --keep-dir "Debug" -maxrregcount=0  --machine 32 --compile  -g   -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /Od /Zi /RTC1 /MDd  " -o "Debug\cuda_learning.cu.obj" "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\cuda_learning.cu" -clean
-         
-         E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning>"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -ccbin "E:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin"  -I"C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc" -I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"  -G   --keep-dir "Debug" -maxrregcount=0  --machine 32 --compile  -g   -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /Od /Zi /RTC1 /MDd  " -o "Debug\cuda_learning.cu.obj" "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\cuda_learning.cu" -clean 
-         Deleting file "Debug\cuda_learning.cu.deps".
-       CudaClean:
-         cmd.exe /C "C:\Users\BreadMaker\AppData\Local\Temp\b2ddb352aef74a269927ac3e1f68bb81.cmd"
-         "E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -ccbin "E:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin"  -I"C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc" -I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"  -G   --keep-dir "Debug" -maxrregcount=0  --machine 32 --compile  -g   -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /Od /Zi /RTC1 /MDd  " -o "Debug\SPHSolverHost.cu.obj" "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\SPHSolverHost.cu" -clean
-         
-         E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning>"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -ccbin "E:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin"  -I"C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc" -I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"  -G   --keep-dir "Debug" -maxrregcount=0  --machine 32 --compile  -g   -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /Od /Zi /RTC1 /MDd  " -o "Debug\SPHSolverHost.cu.obj" "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\SPHSolverHost.cu" -clean 
-         Deleting file "Debug\SPHSolverHost.cu.deps".
-       InitializeBuildStatus:
+﻿Build started 12/21/2012 7:46:41 PM.
+     1>Project "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\cuda_learning.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
          Creating "Debug\cuda_learning.unsuccessfulbuild" because "AlwaysCreate" was specified.
        AddCudaCompileDeps:
-         E:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\cl.exe /E /nologo /showIncludes /TP /D__CUDACC__ /DWIN32 /D_DEBUG /D_CONSOLE /D_UNICODE /DUNICODE /I"C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc" /I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" /I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin" /I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" /I. /FIcuda_runtime.h /c "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\cuda_learning.cu" 
+       Skipping target "AddCudaCompileDeps" because all output files are up-to-date with respect to the input files.
        AddCudaCompileDeps:
          E:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\cl.exe /E /nologo /showIncludes /TP /D__CUDACC__ /DWIN32 /D_DEBUG /D_CONSOLE /D_UNICODE /DUNICODE /I"C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc" /I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" /I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin" /I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" /I. /FIcuda_runtime.h /c "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\SPHSolverHost.cu" 
+       AddCudaCompilePropsDeps:
+       Skipping target "AddCudaCompilePropsDeps" because all output files are up-to-date with respect to the input files.
+       AddCudaCompilePropsDeps:
+       Skipping target "AddCudaCompilePropsDeps" because all output files are up-to-date with respect to the input files.
+       AddCudaCompilePropsDeps:
+       Skipping target "AddCudaCompilePropsDeps" because all output files are up-to-date with respect to the input files.
+       CudaBuild:
+       Skipping target "CudaBuild" because all output files are up-to-date with respect to the input files.
+       CudaBuild:
+         Compiling CUDA source file SPHSolverHost.cu...
+         cmd.exe /C "C:\Users\BreadMaker\AppData\Local\Temp\5d20826d340243e0ad2cb88770753b13.cmd"
+         "E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -gencode=arch=compute_10,code=\"sm_10,compute_10\" --use-local-env --cl-version 2010 -ccbin "E:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin"  -I"C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc" -I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"  -G   --keep-dir "Debug" -maxrregcount=0  --machine 32 --compile  -g   -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /Od /Zi /RTC1 /MDd  " -o "Debug\SPHSolverHost.cu.obj" "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\SPHSolverHost.cu"
+         
+         E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning>"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -gencode=arch=compute_10,code=\"sm_10,compute_10\" --use-local-env --cl-version 2010 -ccbin "E:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin"  -I"C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc" -I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"  -G   --keep-dir "Debug" -maxrregcount=0  --machine 32 --compile  -g   -DWIN32 -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /Od /Zi /RTC1 /MDd  " -o "Debug\SPHSolverHost.cu.obj" "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\SPHSolverHost.cu" 
+         SPHSolverHost.cu
+     1>e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(360): warning : variable "sum" was declared but never referenced
+         
+     1>e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(361): warning : variable "force" was declared but never referenced
+         
+         tmpxft_000012ac_00000000-2_SPHSolverHost.cudafe1.gpu
+         tmpxft_000012ac_00000000-7_SPHSolverHost.cudafe2.gpu
+         SPHSolverHost.cu
+     1>e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(360): warning : variable "sum" was declared but never referenced
+         
+     1>e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(361): warning : variable "force" was declared but never referenced
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(160): warning : a __device__ variable "sortedPartBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(160): warning : a __device__ variable "gridBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(169): warning : a __device__ variable "sortedPartBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(169): warning : a __device__ variable "gridBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(175): warning : a __device__ variable "sortedPartBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(195): warning : a __device__ variable "partBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(196): warning : a __device__ variable "hashBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(197): warning : a __device__ variable "hashValueBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(198): warning : a __device__ variable "sortedPartBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(199): warning : a __device__ variable "gridBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(206): warning : a __device__ variable "partBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(230): warning : a __device__ variable "partBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(237): warning : a __device__ variable "partBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(245): warning : a __device__ variable "hashBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(246): warning : a __device__ variable "hashValueBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(247): warning : a __device__ variable "gridBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(250): warning : a __device__ variable "partBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(250): warning : a __device__ variable "hashBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(250): warning : a __device__ variable "hashValueBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(254): warning : a __device__ variable "hashBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(255): warning : a __device__ variable "hashValueBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(262): warning : a __device__ variable "partBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(262): warning : a __device__ variable "sortedPartBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(262): warning : a __device__ variable "hashBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(262): warning : a __device__ variable "hashValueBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(262): warning : a __device__ variable "gridBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(271): warning : a __device__ variable "hashBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(273): warning : a __device__ variable "hashValueBuffer" cannot be directly read in a host function
+         
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(281): warning : a __device__ variable "gridBuffer" cannot be directly read in a host function
+         
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(211): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(212): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(214): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(236): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(236): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(236): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(237): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(237): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(237): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(169): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(171): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(171): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(172): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(172): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(173): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(173): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(258): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(259): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(367): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(367): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(367): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(372): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(372): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(372): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(373): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(373): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(373): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(290): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(291): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(299): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(300): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(301): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(312): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(312): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(312): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(312): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(312): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(312): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(314): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(314): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(314): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(314): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(314): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(314): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(351): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(351): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(352): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(352): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(353): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(353): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(344): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(346): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(346): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(347): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(347): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(348): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(348): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(404): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(404): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(404): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(405): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(405): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(405): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(406): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(406): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(406): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(408): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(420): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(420): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(420): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(421): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(424): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(424): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(425): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(425): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(426): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(426): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(429): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(431): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(820): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(820): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(821): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(821): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(822): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(822): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(436): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(438): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(820): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(820): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(821): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(821): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(822): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(822): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(441): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(443): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(820): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(820): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(821): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(821): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(822): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(822): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(447): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(449): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(820): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(820): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(821): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(821): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(822): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(822): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(452): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(454): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(820): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(820): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(821): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(821): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(822): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(822): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(483): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(483): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(483): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(485): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(488): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(505): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(505): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(505): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(351): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(351): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(352): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(352): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(353): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(353): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(543): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(545): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(550): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(552): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(555): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(557): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(561): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(563): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(566): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(568): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(574): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(574): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(574): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(574): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(574): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(574): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(820): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(820): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(821): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(821): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(822): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc\helper_math.h(822): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(577): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(577): Warning: Cannot tell what pointer points to, assuming global memory space
+         ./e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(577): Warning: Cannot tell what pointer points to, assuming global memory space
+     1>E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include\thrust/detail/swap.inl(27): warning : Cannot tell what pointer points to, assuming global memory space
+     1>E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include\thrust/detail/swap.inl(28): warning : Cannot tell what pointer points to, assuming global memory space
+     1>E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include\thrust/detail/swap.inl(28): warning : Cannot tell what pointer points to, assuming global memory space
+     1>E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include\thrust/detail/swap.inl(29): warning : Cannot tell what pointer points to, assuming global memory space
+     1>E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include\thrust/detail/swap.inl(27): warning : Cannot tell what pointer points to, assuming global memory space
+     1>E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include\thrust/detail/swap.inl(28): warning : Cannot tell what pointer points to, assuming global memory space
+     1>E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include\thrust/detail/swap.inl(28): warning : Cannot tell what pointer points to, assuming global memory space
+     1>E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include\thrust/detail/swap.inl(29): warning : Cannot tell what pointer points to, assuming global memory space
+         ptxas C:/Users/BREADM~1/AppData/Local/Temp/tmpxft_000012ac_00000000-4_SPHSolverHost.ptx, line 2430; : warning : Double is not supported. Demoting to float
+         tmpxft_000012ac_00000000-2_SPHSolverHost.cudafe1.cpp
+         tmpxft_000012ac_00000000-12_SPHSolverHost.ii
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(127): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(128): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(129): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(130): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(131): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(215): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(216): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/SPHSolverHost.cu(217): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+         Deleting file "tmpxft_000012ac_00000000-8_SPHSolverHost.cpp3.o".
+       CudaBuild:
+         Skipping CUDA source file SPHSolverKernal.cu (excluded from build).
+       ClCompile:
+         All outputs are up-to-date.
+         E:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\ProgramData\NVIDIA Corporation\CUDA Samples\v5.0\common\inc" /I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\cuda_learning.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\vector3d.h(46): warning C4172: returning address of local variable or temporary
+     1>e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\vector3d.h(50): warning C4172: returning address of local variable or temporary
+     1>e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\vector3d.h(57): warning C4172: returning address of local variable or temporary
+     1>e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\main.cpp(19): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\main.cpp(86): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+       ManifestResourceCompile:
+         All outputs are up-to-date.
+       Link:
+         E:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"e:\my documents\visual studio 2010\Projects\cuda_learning\Debug\cuda_learning.exe" /INCREMENTAL /NOLOGO /LIBPATH:"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\lib\Win32" cudart.lib freeglut.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\cuda_learning.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"e:\my documents\visual studio 2010\Projects\cuda_learning\Debug\cuda_learning.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"e:\my documents\visual studio 2010\Projects\cuda_learning\Debug\cuda_learning.lib" /MACHINE:X86 Debug\cuda_learning.cu.obj
+         Debug\SPHSolverHost.cu.obj
+         Debug\cuda_learning.exe.embed.manifest.res
+         Debug\main.obj
+         Debug\SPHSolver.obj
+         Debug\Vector3D.obj
+         Debug\stdafx.obj
+       Manifest:
+         E:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\cuda_learning.exe.embed.manifest" /manifest Debug\cuda_learning.exe.intermediate.manifest
+         All outputs are up-to-date.
+       LinkEmbedManifest:
+         All outputs are up-to-date.
+         cuda_learning.vcxproj -> e:\my documents\visual studio 2010\Projects\cuda_learning\Debug\cuda_learning.exe
+       FinalizeBuildStatus:
+         Deleting file "Debug\cuda_learning.unsuccessfulbuild".
+         Touching "Debug\cuda_learning.lastbuildstate".
+     1>Done Building Project "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\cuda_learning.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:01:09.49
