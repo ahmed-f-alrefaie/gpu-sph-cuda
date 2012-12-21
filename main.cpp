@@ -36,15 +36,15 @@ int main(int argc,char **argv)
 
 
 
-    SPHSolver sph(0.0020f);
+    SPHSolver sph(0.020f);
 	sphptr = &sph;
-	for(int i = 0; i < 5000; i++)
+	for(int i = 0; i < 2000; i++)
 	{
 		sph.AddNewParticle(
 			(float)rand()/((float)RAND_MAX/1.0f)-0.5f,
 			0,//(float)rand()/((float)RAND_MAX/1.0f)-0.5f,
 			(float)rand()/((float)RAND_MAX/1.0f)-0.5f,
-			0.0020543f, 50.50f,3.00f,998.0f);
+			0.0020543f, 46.50f,3.00f,998.0f);
 	}
 
 	//Setup the solver

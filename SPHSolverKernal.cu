@@ -335,14 +335,11 @@ __device__ void ContributeForces(float3* forces,int Idx,char* iPart,uint hashKey
         fFactor = -iDens*jMass*solver.pressKernal*c*c/rNorm;
         fFactor *= ((iPress)/(iDens*iDens)) + ((jPress)/(jDens*jDens));
 
-		*forces += r*fFactor;
-
-		//forces->x += r.x*fFactor;
-		//forces->y += r.y*fFactor;
-		//forces->z += r.z*fFactor;
+		forces->x += r.x*fFactor;
+		forces->y += r.y*fFactor;
+		forces->z += r.z*fFactor;
 		//Apply viscosity
 		fFactor = (*(float*)(iPart + VIS_STRIDE))*jMass*solver.viscKernal*c/(jDens);
-		//*forces += u*fFactor;
 		forces->x += u.x*fFactor;
 		forces->y += u.y*fFactor;
 		forces->z += u.z*fFactor;
@@ -408,7 +405,7 @@ __global__ void AdvanceEuler(float dt, char** pSortFluidBuf,int numParts)
 	   	if(*(float*)(particle + DENS_STRIDE) == 0.0f)
 			accel = make_float3(0,0,0);
 
-	//	accel.z += -9.81f;
+		accel.z += -9.81f;
 
 		float speed = accel.x*accel.x + accel.y*accel.y + accel.z*accel.z;
 		if(speed > solver.maxSpeed*solver.maxSpeed)
@@ -543,30 +540,30 @@ __global__ void AdvanceLeap(float dt, char** pSortFluidBuf,int numParts)
 	   if(pos->z < -solver.simSize.z-EPSILON)
 	   {
 		   pos->z = -solver.simSize.z;
-		   accel.z *= solver.velDamp;
+		   accel *= solver.velDamp;
 	   }
 
 	   ////////////X BOUNDARIES/////////////////
 	   if(pos->x < -solver.simSize.x-EPSILON)
 	   {
 		   pos->x = -solver.simSize.x;
-		   accel.x *= solver.velDamp;
+		   accel *= solver.velDamp;
 	   }
 	   if(pos->x > solver.simSize.x+EPSILON)
 	   {
 		   pos->x = solver.simSize.x;
-		   accel.x *= solver.velDamp;
+		   accel *= solver.velDamp;
 	   }
 	   ///////////Y BOUNDARIES//////////////////
 	   	   if(pos->y < -solver.simSize.y-EPSILON)
 	   {
 		   pos->y = -solver.simSize.y;
-		   accel.y *= solver.velDamp;
+		   accel *= solver.velDamp;
 	   }
 	   if(pos->y > solver.simSize.y+EPSILON)
 	   {
 		   pos->y = solver.simSize.y;
-		   accel.y *= solver.velDamp;
+		   accel *= solver.velDamp;
 	   }
 
 
