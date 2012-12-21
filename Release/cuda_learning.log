@@ -1,0 +1,193 @@
+﻿Build started 21/12/2012 13:42:14.
+     1>Project "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\cuda_learning.vcxproj" on node 2 (build target(s)).
+     1>PrepareForBuild:
+         Creating directory "e:\my documents\visual studio 2010\Projects\cuda_learning\Release\".
+       InitializeBuildStatus:
+         Creating "Release\cuda_learning.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       AddCudaCompileDeps:
+         E:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\cl.exe /E /nologo /showIncludes /TP /D__CUDACC__ /DWIN32 /DNDEBUG /D_CONSOLE /D_UNICODE /DUNICODE /I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" /I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin" /I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" /I. /FIcuda_runtime.h /c "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\cuda_learning.cu" 
+       AddCudaCompileDeps:
+         E:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\cl.exe /E /nologo /showIncludes /TP /D__CUDACC__ /DWIN32 /DNDEBUG /D_CONSOLE /D_UNICODE /DUNICODE /I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" /I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin" /I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" /I. /FIcuda_runtime.h /c "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\SPHSolverHost.cu" 
+       AddCudaCompileDeps:
+         E:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\cl.exe /E /nologo /showIncludes /TP /D__CUDACC__ /DWIN32 /DNDEBUG /D_CONSOLE /D_UNICODE /DUNICODE /I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" /I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin" /I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" /I. /FIcuda_runtime.h /c "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\SPHSolverKernal.cu" 
+       AddCudaCompilePropsDeps:
+         Found "CudaToolkitCustomDir".
+         Found "AdditionalDeps".
+         Found "CompileOut".
+         Found "Include".
+         Found "UseHostInclude".
+         Found "Keep".
+         Found "KeepDir".
+         Found "GenerateRelocatableDeviceCode".
+         Found "NvccCompilation".
+         Found "NvccPath".
+         Found "RequiredIncludes".
+         Found "TargetMachinePlatform".
+         Found "CInterleavedPTX".
+         Found "CodeGeneration".
+         Found "GPUDebugInfo".
+         Found "GenerateLineInfo".
+         Found "MaxRegCount".
+         Found "PtxAsOptionV".
+         Found "AdditionalCompilerOptions".
+         Found "Defines".
+         Found "UseHostDefines".
+         Found "Emulation".
+         Found "HostDebugInfo".
+         Found "FastMath".
+         Found "Optimization".
+         Found "Runtime".
+         Found "RuntimeChecks".
+         Found "TypeInfo".
+         Found "Warning".
+         Found "AdditionalOptions".
+         Found "CommandLineTemplate".
+         Found "PerformDeviceLink".
+         Found "LinkOut".
+         Found "AdditionalLibraryDirectories".
+         Found "UseHostLibraryDirectories".
+         Found "AdditionalDependencies".
+         Found "UseHostLibraryDependencies".
+         Found "GPUDebugInfo".
+         Found "Optimization".
+         Found "CodeGeneration".
+         Found "TargetMachinePlatform".
+         Found "Warning".
+         Found "RuntimeChecks".
+         Found "Runtime".
+         Found "TypeInfo".
+         Found "AdditionalCompilerOptions".
+         Found "Inputs".
+         Found "AdditionalOptions".
+         Found "CommandLineTemplate".
+       AddCudaCompilePropsDeps:
+         Found "CudaToolkitCustomDir".
+         Found "AdditionalDeps".
+         Found "CompileOut".
+         Found "Include".
+         Found "UseHostInclude".
+         Found "Keep".
+         Found "KeepDir".
+         Found "GenerateRelocatableDeviceCode".
+         Found "NvccCompilation".
+         Found "NvccPath".
+         Found "RequiredIncludes".
+         Found "TargetMachinePlatform".
+         Found "CInterleavedPTX".
+         Found "CodeGeneration".
+         Found "GPUDebugInfo".
+         Found "GenerateLineInfo".
+         Found "MaxRegCount".
+         Found "PtxAsOptionV".
+         Found "AdditionalCompilerOptions".
+         Found "Defines".
+         Found "UseHostDefines".
+         Found "Emulation".
+         Found "HostDebugInfo".
+         Found "FastMath".
+         Found "Optimization".
+         Found "Runtime".
+         Found "RuntimeChecks".
+         Found "TypeInfo".
+         Found "Warning".
+         Found "AdditionalOptions".
+         Found "CommandLineTemplate".
+         Found "PerformDeviceLink".
+         Found "LinkOut".
+         Found "AdditionalLibraryDirectories".
+         Found "UseHostLibraryDirectories".
+         Found "AdditionalDependencies".
+         Found "UseHostLibraryDependencies".
+         Found "GPUDebugInfo".
+         Found "Optimization".
+         Found "CodeGeneration".
+         Found "TargetMachinePlatform".
+         Found "Warning".
+         Found "RuntimeChecks".
+         Found "Runtime".
+         Found "TypeInfo".
+         Found "AdditionalCompilerOptions".
+         Found "Inputs".
+         Found "AdditionalOptions".
+         Found "CommandLineTemplate".
+       AddCudaCompilePropsDeps:
+         Found "CudaToolkitCustomDir".
+         Found "AdditionalDeps".
+         Found "CompileOut".
+         Found "Include".
+         Found "UseHostInclude".
+         Found "Keep".
+         Found "KeepDir".
+         Found "GenerateRelocatableDeviceCode".
+         Found "NvccCompilation".
+         Found "NvccPath".
+         Found "RequiredIncludes".
+         Found "TargetMachinePlatform".
+         Found "CInterleavedPTX".
+         Found "CodeGeneration".
+         Found "GPUDebugInfo".
+         Found "GenerateLineInfo".
+         Found "MaxRegCount".
+         Found "PtxAsOptionV".
+         Found "AdditionalCompilerOptions".
+         Found "Defines".
+         Found "UseHostDefines".
+         Found "Emulation".
+         Found "HostDebugInfo".
+         Found "FastMath".
+         Found "Optimization".
+         Found "Runtime".
+         Found "RuntimeChecks".
+         Found "TypeInfo".
+         Found "Warning".
+         Found "AdditionalOptions".
+         Found "CommandLineTemplate".
+         Found "PerformDeviceLink".
+         Found "LinkOut".
+         Found "AdditionalLibraryDirectories".
+         Found "UseHostLibraryDirectories".
+         Found "AdditionalDependencies".
+         Found "UseHostLibraryDependencies".
+         Found "GPUDebugInfo".
+         Found "Optimization".
+         Found "CodeGeneration".
+         Found "TargetMachinePlatform".
+         Found "Warning".
+         Found "RuntimeChecks".
+         Found "Runtime".
+         Found "TypeInfo".
+         Found "AdditionalCompilerOptions".
+         Found "Inputs".
+         Found "AdditionalOptions".
+         Found "CommandLineTemplate".
+       CudaBuild:
+         Compiling CUDA source file cuda_learning.cu...
+         cmd.exe /C "C:\Users\BreadMaker\AppData\Local\Temp\fd868f9a074141e5b227be86364e8ef8.cmd"
+         "E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -gencode=arch=compute_10,code=\"sm_10,compute_10\" --use-local-env --cl-version 2010 -ccbin "E:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin"  -I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"     --keep-dir "Release" -maxrregcount=0  --machine 32 --compile     -DWIN32 -DNDEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /O2 /Zi  /MD  " -o "Release\cuda_learning.cu.obj" "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\cuda_learning.cu"
+         
+         E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning>"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -gencode=arch=compute_10,code=\"sm_10,compute_10\" --use-local-env --cl-version 2010 -ccbin "E:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin"  -I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"     --keep-dir "Release" -maxrregcount=0  --machine 32 --compile     -DWIN32 -DNDEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /O2 /Zi  /MD  " -o "Release\cuda_learning.cu.obj" "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\cuda_learning.cu" 
+         cuda_learning.cu
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/cuda_learning.cu(15): warning : expression has no effect
+         
+         tmpxft_00001524_00000000-2_cuda_learning.cudafe1.gpu
+         tmpxft_00001524_00000000-7_cuda_learning.cudafe2.gpu
+         cuda_learning.cu
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/cuda_learning.cu(15): warning : expression has no effect
+         
+         tmpxft_00001524_00000000-2_cuda_learning.cudafe1.cpp
+         tmpxft_00001524_00000000-12_cuda_learning.ii
+     1>E:/My Documents/Visual Studio 2010/Projects/cuda_learning/cuda_learning/cuda_learning.cu(15): warning C4552: '+' : operator has no effect; expected operator with side-effect
+       CudaBuild:
+         Compiling CUDA source file SPHSolverHost.cu...
+         cmd.exe /C "C:\Users\BreadMaker\AppData\Local\Temp\286599fed490475d8d54a9564a5b3eff.cmd"
+         "E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -gencode=arch=compute_10,code=\"sm_10,compute_10\" --use-local-env --cl-version 2010 -ccbin "E:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin"  -I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"     --keep-dir "Release" -maxrregcount=0  --machine 32 --compile     -DWIN32 -DNDEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /O2 /Zi  /MD  " -o "Release\SPHSolverHost.cu.obj" "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\SPHSolverHost.cu"
+         
+         E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning>"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -gencode=arch=compute_10,code=\"sm_10,compute_10\" --use-local-env --cl-version 2010 -ccbin "E:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin"  -I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"     --keep-dir "Release" -maxrregcount=0  --machine 32 --compile     -DWIN32 -DNDEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /O2 /Zi  /MD  " -o "Release\SPHSolverHost.cu.obj" "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\SPHSolverHost.cu" 
+         SPHSolverHost.cu
+     1>e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\SPHSolverKernal.cu(4): fatal error C1083: Cannot open include file: 'helper_cuda.h': No such file or directory
+     1>E:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\BuildCustomizations\CUDA 5.0.targets(592,9): error MSB3721: The command ""E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\bin\nvcc.exe" -gencode=arch=compute_10,code=\"sm_10,compute_10\" --use-local-env --cl-version 2010 -ccbin "E:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin"  -I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" -I"E:\Programs\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include"     --keep-dir "Release" -maxrregcount=0  --machine 32 --compile     -DWIN32 -DNDEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /O2 /Zi  /MD  " -o "Release\SPHSolverHost.cu.obj" "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\SPHSolverHost.cu"" exited with code 2.
+     1>Done Building Project "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\cuda_learning.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:09.80
