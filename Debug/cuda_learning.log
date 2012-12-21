@@ -1,4 +1,4 @@
-﻿Build started 12/21/2012 7:59:35 PM.
+﻿Build started 12/21/2012 8:37:05 PM.
      1>Project "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\cuda_learning.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\cuda_learning.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -50,4 +50,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.14
+Time Elapsed 00:00:01.85

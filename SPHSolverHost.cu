@@ -129,7 +129,7 @@ void SetupSolver(float smoothRadius, int numFluid)
 	params.lapKernal = -945/(32*PI*std::powf(params.smoothradius,9));
 	params.pressKernal = -45/(PI*std::powf(params.smoothradius,6));
 	params.viscKernal = 45/(PI*std::powf(params.smoothradius,6));
-	params.velDamp = -.01f;
+	params.velDamp = -0.001f;
 	params.maxSpeed = 200.0f;
 	//Copy the information into the constant in the device
 	checkCudaErrors(cudaMemcpyToSymbol(solver,&params,sizeof(params),0, cudaMemcpyHostToDevice));

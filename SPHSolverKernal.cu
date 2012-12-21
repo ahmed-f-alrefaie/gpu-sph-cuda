@@ -335,9 +335,11 @@ __device__ void ContributeForces(float3* forces,int Idx,char* iPart,uint hashKey
         fFactor = -iDens*jMass*solver.pressKernal*c*c/rNorm;
         fFactor *= ((iPress)/(iDens*iDens)) + ((jPress)/(jDens*jDens));
 
-		forces->x += r.x*fFactor;
-		forces->y += r.y*fFactor;
-		forces->z += r.z*fFactor;
+		*forces += r*fFactor;
+
+		//forces->x += r.x*fFactor;
+		//forces->y += r.y*fFactor;
+		//forces->z += r.z*fFactor;
 		//Apply viscosity
 		fFactor = (*(float*)(iPart + VIS_STRIDE))*jMass*solver.viscKernal*c/(jDens);
 		forces->x += u.x*fFactor;
@@ -537,34 +539,36 @@ __global__ void AdvanceLeap(float dt, char** pSortFluidBuf,int numParts)
 		}
 		*/
 	   //Z BOUNDARY WITH OPEN TOP
-	   if(pos->z < -solver.simSize.z-EPSILON)
+	   if(pos->z < -solver.simSize.z)
 	   {
 		   pos->z = -solver.simSize.z;
 		   accel *= solver.velDamp;
 	   }
 
+	   
 	   ////////////X BOUNDARIES/////////////////
-	   if(pos->x < -solver.simSize.x-EPSILON)
+	   if(pos->x < -solver.simSize.x)
 	   {
 		   pos->x = -solver.simSize.x;
 		   accel *= solver.velDamp;
 	   }
-	   if(pos->x > solver.simSize.x+EPSILON)
+	   if(pos->x > solver.simSize.x)
 	   {
 		   pos->x = solver.simSize.x;
 		   accel *= solver.velDamp;
 	   }
 	   ///////////Y BOUNDARIES//////////////////
-	   	   if(pos->y < -solver.simSize.y-EPSILON)
+	   	   if(pos->y < -solver.simSize.y)
 	   {
 		   pos->y = -solver.simSize.y;
 		   accel *= solver.velDamp;
 	   }
-	   if(pos->y > solver.simSize.y+EPSILON)
+	   if(pos->y > solver.simSize.y)
 	   {
 		   pos->y = solver.simSize.y;
 		   accel *= solver.velDamp;
 	   }
+	   
 
 
 	   //Calculate th midpoint to find the velocity (for viscosity)
