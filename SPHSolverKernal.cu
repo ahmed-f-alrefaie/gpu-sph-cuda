@@ -307,8 +307,7 @@ __device__ void ContributeForces(float3* forces,int Idx,char* iPart,uint hashKey
 		//calculate |r|
 		rNorm = length(r);
 
-		if(rNorm < solver.smoothradius)
-		{
+
 
 		c = (solver.smoothradius - rNorm);
 
@@ -336,7 +335,7 @@ __device__ void ContributeForces(float3* forces,int Idx,char* iPart,uint hashKey
 		forces->y += u.y*fFactor;
 		forces->z += u.z*fFactor;
 
-		}
+		
 
 
 	}
