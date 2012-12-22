@@ -32,6 +32,8 @@ public:
 	void SetupCUDASolver();
 	void ComputeKernals();
 	void ComputeDensityBrute();
+	void ComputeForcesBrute();
+	void AdvanceLeapFrog(float dt);
 	inline int GetParticleCount(){return mTotalParticles;}
 	void Advance(float dt);
 	void Draw(float* viewMat);

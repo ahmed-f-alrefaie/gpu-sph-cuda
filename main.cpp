@@ -33,18 +33,21 @@ int main(int argc,char **argv)
 	glutIdleFunc(renderScene);
 	glutDisplayFunc(renderScene);
 	
+	//Water test
+	int particles = 2000;
+	float WaterMass = 10.0/particles;
 
 
 
     SPHSolver sph(0.020f);
 	sphptr = &sph;
-	for(int i = 0; i < 20000; i++)
+	for(int i = 0; i < particles; i++)
 	{
 		sph.AddNewParticle(
 			(float)rand()/((float)RAND_MAX/1.0f)-0.5f,
 			0,//(float)rand()/((float)RAND_MAX/1.0f)-0.5f,
 			(float)rand()/((float)RAND_MAX/1.0f)-0.5f,
-			0.020543f, 70.50f,3.00f,998.0f);
+			WaterMass, 4.50f,3.00f,998.0f);
 	}
 
 	//Setup the solver
@@ -64,7 +67,7 @@ void renderScene(void) {
 
 	glLoadIdentity();
 
-	sphptr->Advance(0.005f);
+	sphptr->Advance(0.003f);
 	//
 	//TestParticleBuffer(partBuffer,sphptr->GetParticleCount()
 	//

@@ -1,4 +1,4 @@
-﻿Build started 12/21/2012 8:37:05 PM.
+﻿Build started 12/22/2012 10:16:26 PM.
      1>Project "E:\My Documents\Visual Studio 2010\Projects\cuda_learning\cuda_learning\cuda_learning.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\cuda_learning.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -26,7 +26,8 @@
      1>e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\vector3d.h(50): warning C4172: returning address of local variable or temporary
      1>e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\vector3d.h(57): warning C4172: returning address of local variable or temporary
      1>e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\main.cpp(19): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\main.cpp(86): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\main.cpp(38): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>e:\my documents\visual studio 2010\projects\cuda_learning\cuda_learning\main.cpp(89): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
        ManifestResourceCompile:
          All outputs are up-to-date.
        Link:
@@ -50,4 +51,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.85
+Time Elapsed 00:00:02.00

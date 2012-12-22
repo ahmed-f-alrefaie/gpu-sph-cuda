@@ -211,6 +211,7 @@ void CheckSortedParticles()
 		float* dens = (float*)(testparts + i*params.bytestride + DENS_STRIDE);
 		float3* force = (float3*)(testparts + i*params.bytestride + FORCE_STRIDE);
 		float* mass = (float*)(testparts + i*params.bytestride + MASS_STRIDE);
+		float* pressure = (float*)(testparts + i*params.bytestride + PRESS_STRIDE);
 		int3 iPos;
 		iPos.x = (pos->x/params.gridSize);
 		iPos.y = (pos->y/params.gridSize);
@@ -218,7 +219,7 @@ void CheckSortedParticles()
 		uint hash = ((iPos.x*PRIME_CONSTANT_1)^(iPos.y*PRIME_CONSTANT_2)^(iPos.z*PRIME_CONSTANT_3)) & (params.hashNum-1);
 
 		printf("Hash: %i\n",hash);
-		printf("Particle %i - x: %f y: %f z: %f density: %f fx: %f fy: %f fz: %f mass: %f\n",i,pos->x,pos->y,pos->z,*dens,force->x,force->y,force->z,*mass);
+		printf("Particle %i - x: %f y: %f z: %f density: %f fx: %f fy: %f fz: %f mass: %f pressure: %f\n",i,pos->x,pos->y,pos->z,*dens,force->x,force->y,force->z,*mass,*pressure);
 
 		
 	}

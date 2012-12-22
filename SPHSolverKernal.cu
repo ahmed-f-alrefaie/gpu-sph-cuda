@@ -37,6 +37,21 @@ __device__ uint hashFunc(int x, int y, int z)
 	return ((x*PRIME_CONSTANT_1)^(y*PRIME_CONSTANT_2)^(z*PRIME_CONSTANT_3)) & (solver.hashNum-1);
 };
 
+__device__ uint hashFuncInt3(int3 pos)
+{
+
+	return ((pos.x*PRIME_CONSTANT_1)^(pos.y*PRIME_CONSTANT_2)^(pos.z*PRIME_CONSTANT_3)) & (solver.hashNum-1);
+};
+
+__device__ int3 CalcGridPos(float3 pos)
+{
+	int3 gridPos;
+	gridPos.x = floor(pos.x / solver.gridSize);
+	gridPos.y = floor(pos.y / solver.gridSize);
+	gridPos.z = floor(pos.z / solver.gridSize);
+	return gridPos;
+};
+
 __global__ void HashParticles(char* pFluidBuf,int numParts,uint* pHashBuff,uint* pHashValueBuff)
 {
 	//Calculate the particle id
@@ -44,10 +59,7 @@ __global__ void HashParticles(char* pFluidBuf,int numParts,uint* pHashBuff,uint*
 
 	//Get the position of the fluid
 	float3* pos = (float3*)(pFluidBuf +__mul24(Idx,solver.bytestride));
-
-	int hx = pos->x / solver.gridSize;
-	int hy = pos->y /solver.gridSize;
-	int hz = pos->z /solver.gridSize;
+	int3 gridPos = CalcGridPos(*pos);
     
 	if(Idx >= numParts)
 	{
@@ -56,7 +68,7 @@ __global__ void HashParticles(char* pFluidBuf,int numParts,uint* pHashBuff,uint*
 	}
 	else
 	{
-		uint key = hashFunc(hx,hy,hz);
+		uint key = hashFuncInt3(gridPos);
 		//Save to the hash Buffer
 	  	pHashBuff[Idx] = key;
 		pHashValueBuff[Idx] = Idx;
@@ -157,7 +169,8 @@ __device__ float ContributeDensity(int Idx,float3* iPos,uint hashKey,char** pSor
 	float mass,density;
 	float dSq;
 	float h2;
-	float c,difx,dify,difz;
+	float c;
+	float3 r;
 	density = 0.0f;
 	//int particlesFound=0;
 	for(int i = min; i< max; i++)
@@ -168,10 +181,8 @@ __device__ float ContributeDensity(int Idx,float3* iPos,uint hashKey,char** pSor
 		jPos = 	(float3*)(pSortFluidBuf[i]);
 		mass = *(float*)(pSortFluidBuf[i] + MASS_STRIDE);
 		//Calculate the distance squared
-		difx = iPos->x - jPos->x;
-		dify = iPos->y - jPos->y;
-		difz = iPos->z - jPos->z;
-		dSq = difx*difx + dify*dify + difz*difz;
+		r = *iPos - *jPos;
+		dSq = dot(r,r);
 		h2 = (solver.smoothradius)*(solver.smoothradius);
 		if(h2 > dSq)
 		{
@@ -188,14 +199,7 @@ __device__ float ContributeDensity(int Idx,float3* iPos,uint hashKey,char** pSor
 };
 
 
-__device__ int3 CalcGridPos(float3 pos)
-{
-	int3 gridPos;
-	gridPos.x = floor(pos.x / solver.gridSize);
-	gridPos.y = floor(pos.y / solver.gridSize);
-	gridPos.z = floor(pos.z / solver.gridSize);
-	return gridPos;
-};
+
 
 
 __global__ void ComputeDensityAndPressure(char** pSortFluidBuf,int numParts,int2* gridBuffer)
@@ -232,7 +236,7 @@ __global__ void ComputeDensityAndPressure(char** pSortFluidBuf,int numParts,int2
 		*/
 
 		//int gridCount = 0;
-
+		/*
 		int3 gridMin = CalcGridPos(*pos - solver.smoothradius);
 		int3 gridMax = CalcGridPos(*pos + solver.smoothradius);	
 
@@ -243,8 +247,19 @@ __global__ void ComputeDensityAndPressure(char** pSortFluidBuf,int numParts,int2
 			{
 				for(int x = gridMin.x; x<=gridMax.x; x++)
 				{
+				*/
+				int3 gridPos = CalcGridPos(*pos);
+		int3 hashPos;
+
+		for(int z = -1; z<=1; z++)
+		{
+			for(int y = -1; y<=1; y++)
+			{
+				for(int x = -1; x<=1; x++)
+				{
+					hashPos = gridPos + make_int3(x,y,z);
 					//int3 nPos = gridPos + make_int3(x,y,z);
-					uint hash = hashFunc(x,y,z);
+					uint hash = hashFunc(hashPos.x,hashPos.y,hashPos.z);
 						//gridCount++;
 						//Contribute density
 						sum += ContributeDensity(Idx,pos,hash,pSortFluidBuf,gridBuffer);
@@ -367,7 +382,7 @@ __global__ void ComputeForces(char** pSortFluidBuf,int numParts,int2* gridBuffer
 		float3* pos = (float3*)particle;
 
 		float3* force = (float3*)(particle + FORCE_STRIDE);
-
+		/*
 		int3 gridMin = CalcGridPos(*pos - solver.smoothradius);
 		int3 gridMax = CalcGridPos(*pos + solver.smoothradius);	
 
@@ -378,7 +393,19 @@ __global__ void ComputeForces(char** pSortFluidBuf,int numParts,int2* gridBuffer
 			{
 				for(int x = gridMin.x; x<=gridMax.x; x++)
 				{
-					uint hashKey = hashFunc(x,y,z);
+				*/
+
+		int3 gridPos = CalcGridPos(*pos);
+		int3 hashPos;
+
+		for(int z = -1; z<=1; z++)
+		{
+			for(int y = -1; y<=1; y++)
+			{
+				for(int x = -1; x<=1; x++)
+				{
+					hashPos = gridPos + make_int3(x,y,z);
+					uint hashKey = hashFunc(hashPos.x,hashPos.y,hashPos.z);
 						ContributeForces(force,Idx,particle,hashKey,pSortFluidBuf,gridBuffer);
 				}
 			}
@@ -407,7 +434,7 @@ __global__ void AdvanceEuler(float dt, char** pSortFluidBuf,int numParts)
 	   	if(*(float*)(particle + DENS_STRIDE) == 0.0f)
 			accel = make_float3(0,0,0);
 
-		accel.z += -9.81f;
+		//accel.z += -9.81f;
 
 		float speed = accel.x*accel.x + accel.y*accel.y + accel.z*accel.z;
 		if(speed > solver.maxSpeed*solver.maxSpeed)
@@ -435,12 +462,12 @@ __global__ void AdvanceEuler(float dt, char** pSortFluidBuf,int numParts)
 	   if(pos->x < -solver.simSize.x-EPSILON)
 	   {
 		   pos->x = -solver.simSize.x;
-		   *vel *= solver.velDamp;
+		   vel->x *= solver.velDamp;
 	   }
 	   if(pos->x > solver.simSize.x+EPSILON)
 	   {
 		   pos->x = solver.simSize.x;
-		   *vel *= solver.velDamp;
+		   vel->x *= solver.velDamp;
 	   }
 	   ///////////Y BOUNDARIES//////////////////
 	   	   if(pos->y < -solver.simSize.y-EPSILON)
@@ -538,6 +565,7 @@ __global__ void AdvanceLeap(float dt, char** pSortFluidBuf,int numParts)
 			vNext *= -0.1f;
 		}
 		*/
+
 	   //Z BOUNDARY WITH OPEN TOP
 	   if(pos->z < -solver.simSize.z)
 	   {
@@ -550,12 +578,12 @@ __global__ void AdvanceLeap(float dt, char** pSortFluidBuf,int numParts)
 	   if(pos->x < -solver.simSize.x)
 	   {
 		   pos->x = -solver.simSize.x;
-		   accel *= solver.velDamp;
+		   accel.x *= solver.velDamp;
 	   }
 	   if(pos->x > solver.simSize.x)
 	   {
 		   pos->x = solver.simSize.x;
-		   accel *= solver.velDamp;
+		   accel.x *= solver.velDamp;
 	   }
 	   ///////////Y BOUNDARIES//////////////////
 	   	   if(pos->y < -solver.simSize.y)

@@ -7,7 +7,7 @@
 #include <vector_types.h>
 
 #define PI 3.141512
-
+#define EPSILON 0.0001
 SPHSolver::SPHSolver()
 {
 	mSmoothRadius = 0.0456f;
@@ -61,11 +61,11 @@ void SPHSolver::GenerateCUDABuffer(){
 		memcpy(mPartBuffer+partPtrIdx+POS_STRIDE,&mParticles[i].pos.x,sizeof(float)); // x
 		memcpy(mPartBuffer+partPtrIdx+POS_STRIDE+4,&mParticles[i].pos.y,sizeof(float)); // y
 		memcpy(mPartBuffer+partPtrIdx+POS_STRIDE+8,&mParticles[i].pos.z,sizeof(float)); // z
-		//copy velocity
+		//copy vel
 		memcpy(mPartBuffer+partPtrIdx+VEL_STRIDE,&mParticles[i].vel.x,sizeof(float)); // x
 		memcpy(mPartBuffer+partPtrIdx+VEL_STRIDE+4,&mParticles[i].vel.y,sizeof(float)); // y
 		memcpy(mPartBuffer+partPtrIdx+VEL_STRIDE+8,&mParticles[i].vel.z,sizeof(float)); // z
-				//copy velocity
+				//copy vel
 		memcpy(mPartBuffer+partPtrIdx+VEL_EVAL_STRIDE,&mParticles[i].vel.x,sizeof(float)); // x
 		memcpy(mPartBuffer+partPtrIdx+VEL_EVAL_STRIDE+4,&mParticles[i].vel.y,sizeof(float)); // y
 		memcpy(mPartBuffer+partPtrIdx+VEL_EVAL_STRIDE+8,&mParticles[i].vel.z,sizeof(float)); // z
@@ -134,12 +134,12 @@ void SPHSolver::ComputeKernals()
 }
 void SPHSolver::ComputeDensityBrute()
 {
-	int particlesFound = 0;
+
 	for(int i =0; i<mTotalParticles; i++)
 	{
 		Fluid* f_i = &mParticles[i];
 		f_i->density = 0.0f;
-		particlesFound = 0;
+	
 		for(int j=0; j < mTotalParticles; j++)
 		{
 			Fluid* f_j = &mParticles[j];
@@ -151,16 +151,76 @@ void SPHSolver::ComputeDensityBrute()
 			float h2 = mSmoothRadius*mSmoothRadius;
 			if(h2 > r2)
 			{
-				particlesFound++;
+
 				float c = h2 - r2;
 				f_i->density += f_i->mass*defaultKernal*c*c*c;
 			}
 		}
+		f_i->press = (f_i->density - f_i->restdens)*f_i->gasconst;
 
 	}
+}
+
+void SPHSolver::ComputeForcesBrute()
+{
 
 
+	float norm,c,pTerm,vTerm;
+	Vector3D r;
+	Vector3D u;
+	float pressTotal = 0;
 
+	for(int i =0; i<mTotalParticles; i++)
+	{
+		Fluid* f_i = &mParticles[i];
+		f_i->force.x = 0;
+		f_i->force.y = 0;
+		f_i->force.z = 0;
+	
+		if(f_i->density == 0)
+			continue;
+
+		for(int j=0; j < mTotalParticles; j++)
+		{
+			Fluid* f_j = &mParticles[j];
+			if(f_i == f_j)
+				continue;
+		 if(f_j->density == 0)
+			continue;
+
+
+			r.x = f_i->pos.x - f_j->pos.x;
+			r.y = f_i->pos.y - f_j->pos.y;
+			r.z = f_i->pos.z - f_j->pos.z;
+
+			u.x = f_j->vel.x - f_i->vel.x;
+			u.y = f_j->vel.y - f_i->vel.y;
+			u.z = f_j->vel.z - f_i->vel.z;
+			norm = r.Distance();
+
+			if(norm > mSmoothRadius)
+				continue;
+
+			c = (mSmoothRadius- norm);
+
+			pTerm = -f_i->density*f_j->mass*pressureKernal*c*c/norm;
+
+			pressTotal = (f_i->press/(f_i->density*f_i->density)) +
+			(f_j->press/(f_j->density*f_j->density));
+			pTerm *=pressTotal;
+
+			
+			f_i->force.x += r.x*pTerm;
+		    f_i->force.y += r.y*pTerm;
+			f_i->force.z += r.z*pTerm;
+
+			
+
+			float vTerm = f_i->visc*f_j->mass*viscosityKernal*c/f_j->density;
+			Vector3D viscosityForce = u*vTerm;
+			f_i->force += viscosityForce;
+		}
+	}
 }
 
 void SPHSolver::Advance(float dt)
@@ -177,12 +237,13 @@ void SPHSolver::Advance(float dt)
 	//Computer BruteDenisty
 	//ComputeDensityBrute();
 	ComputeForcesCUDA();
-
+	//ComputeForcesBrute();
 	//Advance by euler
 	AdvanceSPH(dt);
-	//CheckSortedParticles();
+	//AdvanceLeapFrog(dt);
+//	CheckSortedParticles();
 
-	//CheckMemory();
+	CheckMemory();
 	//SwapParticleBuffers();
 	//TransferFromCUDA(mPartBuffer,mTotalParticles,sizeof(Fluid));
 }
@@ -201,9 +262,89 @@ void SPHSolver::Draw(float* viewMat)
 		float3* position = (float3*)(mPartBuffer + i*sizeof(Fluid));
 		glColor3f(1.0f,1.0f,1.0f);
 		glVertex3f(position->x*2,position->y*2,position->z*2);
+		//glColor3f(1.0f,0.0f,0.0f);
+		//glVertex3f(mParticles[i].pos.x*2,mParticles[i].pos.y*2,mParticles[i].pos.z*2);
 	}
 	glEnd();
 
 
 }
-	
+
+void SPHSolver::AdvanceLeapFrog(float dt)
+{
+	for(int i = 0; i < mTotalParticles; i++)
+	{
+		Fluid* f_i = &mParticles[i];
+
+
+
+		Vector3D accel = f_i->force;
+		if(f_i->density == 0.0f)
+			accel.Set(0,0,0);
+		else
+		    accel *= 1/f_i->density;
+		
+        accel.z += -9.81f;
+		//accel += *part->ArtifVis;
+
+		
+		float speed = accel.DistanceSquared();
+		if(speed > 200*200)
+		{
+			accel *= 200/std::sqrt(speed);
+		}
+
+        
+		//Calculate the new veloctiy
+		Vector3D vNext = accel; 
+		vNext *= dt;
+
+		vNext += f_i->velEval;
+		
+		//vNext += *part->VelocityAdjust;
+
+		f_i->pos.x += vNext.x*dt;
+		f_i->pos.y += vNext.y*dt;
+		f_i->pos.z += vNext.z*dt;
+
+		float boxSize = 1.0f;
+
+
+		if(f_i->pos.z < -1-EPSILON)
+		{
+			f_i->pos.z = -1;
+			vNext.z *= -0.01f;
+		}
+		
+		if(f_i->pos.x < -boxSize-EPSILON)
+		{
+			f_i->pos.x = -boxSize;
+			vNext.x *= -0.01f;
+		}
+		else if(f_i->pos.x > boxSize+EPSILON)
+		{
+			f_i->pos.x = boxSize;
+			vNext.x *= -0.01f;
+		}
+		if(f_i->pos.y < -boxSize-EPSILON)
+		{
+			f_i->pos.y = -boxSize;
+			vNext.y *= -0.01f;
+		}
+		else if(f_i->pos.y > boxSize+EPSILON)
+		{
+			f_i->pos.y = boxSize;
+			vNext.y *= -0.01f;
+		}
+		
+		//Evaluate the velocity
+		f_i->vel.x = vNext.x + f_i->velEval.x;
+		f_i->vel.y = vNext.y + f_i->velEval.y;
+		f_i->vel.z = vNext.z + f_i->velEval.z;
+		f_i->vel *= 0.5f;
+		f_i->velEval.Set(vNext.x,vNext.y,vNext.z);
+
+
+
+	}
+}
