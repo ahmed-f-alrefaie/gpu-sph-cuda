@@ -65,8 +65,8 @@ void cudaInit(int argc,const char **argv)
 	printf ( "Max Grid Size: %d\n",p.maxGridSize);
 
 	//Used to compute number of blocks and threads needed
-	params.maxThreadsPerBlock =//256
-		p.maxThreadsPerBlock;
+	params.maxThreadsPerBlock =256;
+		//p.maxThreadsPerBlock;
 	
 
 

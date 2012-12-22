@@ -243,7 +243,7 @@ void SPHSolver::Advance(float dt)
 	//AdvanceLeapFrog(dt);
 //	CheckSortedParticles();
 
-	CheckMemory();
+	//CheckMemory();
 	//SwapParticleBuffers();
 	//TransferFromCUDA(mPartBuffer,mTotalParticles,sizeof(Fluid));
 }
@@ -262,7 +262,7 @@ void SPHSolver::Draw(float* viewMat)
 		float3* position = (float3*)(mPartBuffer + i*sizeof(Fluid));
 		glColor3f(1.0f,1.0f,1.0f);
 		glVertex3f(position->x*2,position->y*2,position->z*2);
-		//glColor3f(1.0f,0.0f,0.0f);
+	//	glColor3f(1.0f,0.0f,0.0f);
 		//glVertex3f(mParticles[i].pos.x*2,mParticles[i].pos.y*2,mParticles[i].pos.z*2);
 	}
 	glEnd();

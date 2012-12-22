@@ -236,7 +236,7 @@ __global__ void ComputeDensityAndPressure(char** pSortFluidBuf,int numParts,int2
 		*/
 
 		//int gridCount = 0;
-		/*
+		
 		int3 gridMin = CalcGridPos(*pos - solver.smoothradius);
 		int3 gridMax = CalcGridPos(*pos + solver.smoothradius);	
 
@@ -247,7 +247,8 @@ __global__ void ComputeDensityAndPressure(char** pSortFluidBuf,int numParts,int2
 			{
 				for(int x = gridMin.x; x<=gridMax.x; x++)
 				{
-				*/
+				
+		/*
 				int3 gridPos = CalcGridPos(*pos);
 		int3 hashPos;
 
@@ -259,7 +260,8 @@ __global__ void ComputeDensityAndPressure(char** pSortFluidBuf,int numParts,int2
 				{
 					hashPos = gridPos + make_int3(x,y,z);
 					//int3 nPos = gridPos + make_int3(x,y,z);
-					uint hash = hashFunc(hashPos.x,hashPos.y,hashPos.z);
+					*/
+					uint hash = hashFunc(x,y,z);
 						//gridCount++;
 						//Contribute density
 						sum += ContributeDensity(Idx,pos,hash,pSortFluidBuf,gridBuffer);
@@ -382,7 +384,7 @@ __global__ void ComputeForces(char** pSortFluidBuf,int numParts,int2* gridBuffer
 		float3* pos = (float3*)particle;
 
 		float3* force = (float3*)(particle + FORCE_STRIDE);
-		/*
+		
 		int3 gridMin = CalcGridPos(*pos - solver.smoothradius);
 		int3 gridMax = CalcGridPos(*pos + solver.smoothradius);	
 
@@ -393,8 +395,8 @@ __global__ void ComputeForces(char** pSortFluidBuf,int numParts,int2* gridBuffer
 			{
 				for(int x = gridMin.x; x<=gridMax.x; x++)
 				{
-				*/
-
+				
+		/*
 		int3 gridPos = CalcGridPos(*pos);
 		int3 hashPos;
 
@@ -405,7 +407,8 @@ __global__ void ComputeForces(char** pSortFluidBuf,int numParts,int2* gridBuffer
 				for(int x = -1; x<=1; x++)
 				{
 					hashPos = gridPos + make_int3(x,y,z);
-					uint hashKey = hashFunc(hashPos.x,hashPos.y,hashPos.z);
+					*/
+					uint hashKey = hashFunc(x,y,z);
 						ContributeForces(force,Idx,particle,hashKey,pSortFluidBuf,gridBuffer);
 				}
 			}

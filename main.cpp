@@ -34,8 +34,8 @@ int main(int argc,char **argv)
 	glutDisplayFunc(renderScene);
 	
 	//Water test
-	int particles = 2000;
-	float WaterMass = 10.0/particles;
+	int particles = 20000;
+	float WaterMass = 1.0/particles;
 
 
 
@@ -47,7 +47,7 @@ int main(int argc,char **argv)
 			(float)rand()/((float)RAND_MAX/1.0f)-0.5f,
 			0,//(float)rand()/((float)RAND_MAX/1.0f)-0.5f,
 			(float)rand()/((float)RAND_MAX/1.0f)-0.5f,
-			WaterMass, 4.50f,3.00f,998.0f);
+			WaterMass, 20.50f,1.00f,998.0f);
 	}
 
 	//Setup the solver
@@ -67,7 +67,7 @@ void renderScene(void) {
 
 	glLoadIdentity();
 
-	sphptr->Advance(0.003f);
+	sphptr->Advance(0.005f);
 	//
 	//TestParticleBuffer(partBuffer,sphptr->GetParticleCount()
 	//
